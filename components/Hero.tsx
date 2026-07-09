@@ -10,7 +10,7 @@ export function Hero() {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
             <p className="mb-5 font-display text-[16px] italic text-accent">
-              Hello, I&rsquo;m Fahad —
+              Hello, I&rsquo;m Mahir —
             </p>
             <h1 className="text-balance font-display text-[2.5rem] font-normal leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
               I build web products with the same care you&rsquo;d put into
@@ -43,7 +43,7 @@ export function Hero() {
             <div className="gentle-float relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-border bg-paper-surface-2 shadow-soft-lg">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-ink-muted">
                 <div className="flex h-20 w-20 items-center justify-center rounded-full border border-border bg-paper font-display text-2xl italic text-ink">
-                  F
+                  M
                 </div>
                 <span className="text-[12px]">Profile photo</span>
               </div>

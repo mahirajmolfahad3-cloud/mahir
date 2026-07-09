@@ -16,7 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Fahad — Full-Stack Web Developer",
+  title: "Mahir",
   description:
     "A full-stack developer who builds thoughtful SaaS products, startup MVPs, and web applications with React, Next.js, and Supabase.",
   keywords: [
