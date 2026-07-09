@@ -3,9 +3,8 @@ import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
 
 const LINKS = [
-  { label: "Email", value: "hello@fahad.dev", href: "mailto:hello@fahad.dev", Icon: MailIcon },
-  { label: "GitHub", value: "github.com/fahad", href: "https://github.com", Icon: GithubIcon },
-  { label: "Fiverr", value: "Figma-to-Next.js gig", href: "https://fiverr.com", Icon: ArrowUpRight },
+  { label: "Email", value: "mahirajmolfahad3@gmail.com", href: "mailto:mahirajmolfahad3@gmail.com", Icon: MailIcon },
+  { label: "GitHub", value: "mahirajmolfahad3-cloud", href: "https://github.com/mahirajmolfahad3-cloud", Icon: GithubIcon },
 ];
 
 export function Contact() {

@@ -55,7 +55,7 @@ export function Nav() {
           href="#top"
           className="font-display text-[19px] italic tracking-tight text-ink"
         >
-          Fahad
+          Mahir
         </a>
 
         <ul className="hidden items-center gap-9 md:flex">
