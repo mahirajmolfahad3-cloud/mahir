@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { StatusStrip } from "./StatusStrip";
 
@@ -42,10 +43,13 @@ export function Hero() {
           <Reveal delay={150} className="mx-auto w-full max-w-xs lg:max-w-sm">
             <div className="gentle-float relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-border bg-paper-surface-2 shadow-soft-lg">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-ink-muted">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full border border-border bg-paper font-display text-2xl italic text-ink">
-                  M
-                </div>
-                <span className="text-[12px]">Profile photo</span>
+                <Image
+                  src="/images/profile.png"
+                  alt="Mahir"
+                  width={160}
+                  height={200}
+                  className="aspect-[4/5] w-full object-cover"
+                />
               </div>
             </div>
             <div className="mx-auto mt-4 h-3 w-3/4 rounded-full bg-sage/30 blur-md" />
