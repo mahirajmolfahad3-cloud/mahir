@@ -8,17 +8,15 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <Reveal>
       <article
-        className={`grid grid-cols-1 items-center gap-10 rounded-[24px] border border-border bg-paper-surface p-6 shadow-soft transition-shadow hover:shadow-soft-lg sm:p-8 lg:grid-cols-2 lg:gap-16 ${
-          reversed ? "lg:[&>*:first-child]:order-2" : ""
-        }`}
+        className={`grid grid-cols-1 items-center gap-10 rounded-[24px] border border-border bg-paper-surface p-6 shadow-soft transition-shadow hover:shadow-soft-lg sm:p-8 lg:grid-cols-2 lg:gap-16 ${reversed ? "lg:[&>*:first-child]:order-2" : ""
+          }`}
       >
         <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[18px] border border-border bg-paper-surface-2">
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink-muted">
-            <span className="font-display text-xl italic text-ink">
-              {project.name}
-            </span>
-            <span className="text-[11px]">Project screenshot</span>
-          </div>
+          <img
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div>
@@ -83,3 +81,4 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     </Reveal>
   );
 }
+

@@ -48,18 +48,19 @@ export function CaseStudies() {
                     </h3>
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-500 ${
-                      isOpen ? "rotate-180 text-accent" : ""
-                    }`}
+                    className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-500 ${isOpen ? "rotate-180 text-accent" : ""
+                      }`}
                   />
                 </button>
 
                 {isOpen && (
                   <div className="px-6 pb-10 sm:px-8">
                     <div className="mb-8 aspect-[21/9] w-full overflow-hidden rounded-[18px] border border-border bg-paper-surface-2">
-                      <div className="flex h-full items-center justify-center text-[12px] text-ink-muted">
-                        Case study screenshots
-                      </div>
+                      <img
+                        src={project.image}
+                        alt={`${project.name} case study screenshot`}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
@@ -100,3 +101,4 @@ export function CaseStudies() {
     </section>
   );
 }
+

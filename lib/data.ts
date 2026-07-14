@@ -30,8 +30,8 @@ export const projects: Project[] = [
       "A dashboard that quietly tells you who to follow up with",
       "Simple, calm sign-up, login, and password recovery flows",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://leadpilot-pink.vercel.app/",
+    githubUrl: "https://github.com/mahirajmolfahad3-cloud/LeadPilot",
     image: "/projects/leadpilot.png",
     caseStudy: {
       problem:
@@ -45,8 +45,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "launchbase",
-    name: "LaunchBase",
+    slug: "clientflow",
+    name: "ClientFlow",
     tagline: "The starting point founders usually skip straight past",
     description:
       "A starter platform for early founders that comes with authentication, billing, and a working dashboard already in place, so the first week can be spent testing the idea instead of rebuilding the scaffolding around it.",
@@ -57,9 +57,9 @@ export const projects: Project[] = [
       "Usage tracking that's ready to connect to a billing provider",
       "A small, considered component library, responsive throughout",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
-    image: "/projects/launchbase.png",
+    liveUrl: "https://clientflow-puce.vercel.app/",
+    githubUrl: "https://github.com/mahirajmolfahad3-cloud/ClientFlow",
+    image: "/projects/clientflow.png",
     caseStudy: {
       problem:
         "Founders kept losing precious weeks rebuilding the same login, billing, and dashboard scaffolding for every new idea, before they'd even had a chance to find out whether the idea held up.",
@@ -72,21 +72,21 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "meridian-ops",
-    name: "Meridian Ops",
-    tagline: "An operations dashboard that replaced four spreadsheets",
+    slug: "bookflow",
+    name: "BookFlow",
+    tagline: "A streamlined approach to book management",
     description:
-      "An internal tool for a small logistics team, bringing shipment tracking, vendor status, and exception handling into one calm, readable place, with permissions for each role.",
+      "A simple yet powerful tool for managing book inventories, tracking availability, and facilitating seamless borrowing processes.",
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     features: [
-      "Shipment status that updates itself, quietly, in real time",
-      "An exception list that flags what actually needs a person",
-      "Simple exportable reports for finance and operations",
-      "Separate views for operations, finance, and admin roles",
+      "Book inventory management",
+      "Availability tracking",
+      "Seamless borrowing processes",
+      "User-friendly interface",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
-    image: "/projects/meridian-ops.png",
+    liveUrl: "https://bookflow-lilac.vercel.app/",
+    githubUrl: "https://github.com/mahirajmolfahad3-cloud/BookFlow",
+    image: "/projects/bookflow.png",
     caseStudy: {
       problem:
         "Every morning, the operations team was reconciling four separate spreadsheets just to figure out which shipments were at risk — and by the time they finished, the numbers were already a day behind reality.",

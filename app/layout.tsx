@@ -20,7 +20,7 @@ const manrope = Manrope({
 const siteUrl = "https://your-domain.com"; // Replace with your real domain
 const siteName = "Mahir";
 
-const title = "Mahir _ Full-Stack Developer";
+const title = "Mahir";
 
 const description =
   "Full-stack developer building thoughtful web applications with React, Next.js, TypeScript, and Supabase.";
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
 
