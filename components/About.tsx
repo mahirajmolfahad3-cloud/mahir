@@ -20,17 +20,15 @@ const PRINCIPLES = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+    <section id="about" className="section-shell">
+      <div className="section-inner">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
           <Reveal>
-            <p className="font-display text-[15px] italic text-accent">
-              A little about how I work
-            </p>
-            <h2 className="mt-3 text-balance font-display text-3xl font-normal tracking-tight text-ink sm:text-[2.3rem]">
+            <p className="section-kicker">A little about how I work</p>
+            <h2 className="section-title mt-3 sm:mt-4">
               Software that still feels good to open a year later.
             </h2>
-            <p className="mt-5 text-[15.5px] leading-relaxed text-ink-muted">
+            <p className="section-copy mt-4 max-w-xl">
               I&rsquo;m a full-stack developer who works with founders and small
               teams who want something built properly the first time &mdash;
               thoughtfully structured, clearly written, and easy to hand off
@@ -38,14 +36,14 @@ export function About() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {PRINCIPLES.map((p, i) => (
               <Reveal key={p.title} delay={i * 90}>
-                <div className="h-full rounded-[20px] border border-border bg-paper-surface p-6 shadow-soft">
+                <div className="section-card section-card-muted h-full rounded-[24px] p-6 sm:p-7">
                   <h3 className="font-display text-[15.5px] font-normal text-ink">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 text-[13.5px] leading-relaxed text-ink-muted">
+                  <p className="mt-2.5 text-[13.5px] leading-7 text-ink-muted">
                     {p.description}
                   </p>
                 </div>

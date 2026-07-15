@@ -34,7 +34,7 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={`reveal ${className}`}
+      className={`reveal motion-reduce:transform-none motion-reduce:transition-none ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

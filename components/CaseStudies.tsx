@@ -17,8 +17,8 @@ export function CaseStudies() {
   const [openSlug, setOpenSlug] = useState<string>(projects[0].slug);
 
   return (
-    <section id="case-studies" className="py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section id="case-studies" className="section-shell">
+      <div className="section-inner">
         <SectionHeading
           eyebrow="A closer look"
           title="The thinking behind a few of these"
@@ -32,12 +32,12 @@ export function CaseStudies() {
               <div
                 key={project.slug}
                 id={`case-${project.slug}`}
-                className="scroll-mt-24 overflow-hidden rounded-[22px] border border-border bg-paper-surface shadow-soft"
+                className="section-card scroll-mt-24 overflow-hidden rounded-[24px]"
               >
                 <button
                   onClick={() => setOpenSlug(isOpen ? "" : project.slug)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left sm:px-8"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-all duration-300 hover:bg-paper-surface/70 sm:px-8"
                 >
                   <div>
                     <span className="font-display text-[13.5px] italic text-accent">
@@ -48,14 +48,13 @@ export function CaseStudies() {
                     </h3>
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-500 ${isOpen ? "rotate-180 text-accent" : ""
-                      }`}
+                    className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-500 ${isOpen ? "rotate-180 text-accent" : ""}`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-10 sm:px-8">
-                    <div className="mb-8 aspect-[21/9] w-full overflow-hidden rounded-[18px] border border-border bg-paper-surface-2">
+                  <div className="px-6 pb-8 sm:px-8 sm:pb-10">
+                    <div className="mb-8 aspect-[21/9] w-full overflow-hidden rounded-[18px] border border-border bg-paper-surface-2 shadow-soft">
                       <img
                         src={project.image}
                         alt={`${project.name} case study screenshot`}
@@ -84,7 +83,7 @@ export function CaseStudies() {
                         {project.stack.map((s) => (
                           <span
                             key={s}
-                            className="rounded-full border border-border bg-paper-surface-2 px-3 py-1 text-[12px] text-ink-muted"
+                            className="rounded-full border border-border/70 bg-paper-surface-2 px-3 py-1.5 text-[12px] text-ink-muted"
                           >
                             {s}
                           </span>

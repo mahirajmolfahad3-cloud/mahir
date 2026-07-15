@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -10,9 +10,9 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
@@ -147,7 +147,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fraunces.variable} ${manrope.variable} scroll-smooth`}
+      className={`${fraunces.variable} ${inter.variable} scroll-smooth`}
     >
       <body
         className="min-h-screen bg-paper text-ink antialiased selection:bg-ink/10 [text-rendering:optimizeLegibility]"

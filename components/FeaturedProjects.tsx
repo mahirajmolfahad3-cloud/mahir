@@ -12,7 +12,7 @@ export function FeaturedProjects() {
           description="Each project started as a real problem someone was quietly working around. Here's what came out of sitting with it."
         />
 
-        <div className="mt-14 space-y-8">
+        <div className="mt-16 flex flex-col gap-6 lg:gap-8">
           {projects.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}

@@ -10,16 +10,12 @@ export function SectionHeading({
   description?: string;
 }) {
   return (
-    <Reveal className="max-w-2xl">
-      <p className="font-display text-[15px] italic text-accent">{eyebrow}</p>
-      <h2 className="mt-3 text-balance font-display text-3xl font-normal tracking-tight text-ink sm:text-[2.3rem]">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-4 text-[15.5px] leading-relaxed text-ink-muted">
-          {description}
-        </p>
-      )}
+    <Reveal className="max-w-3xl">
+      <div className="flex flex-col items-start gap-2">
+        <p className="section-kicker">{eyebrow}</p>
+        <h2 className="section-title">{title}</h2>
+      </div>
+      {description && <p className="section-copy">{description}</p>}
     </Reveal>
   );
 }

@@ -18,8 +18,8 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="flex h-full flex-col items-center justify-center rounded-[22px] border border-border bg-paper-surface p-10 text-center shadow-soft">
-        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sage text-sage-ink">
+      <div className="section-card flex h-full flex-col items-center justify-center rounded-[24px] p-10 text-center">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/15 text-accent">
           <CheckIcon className="h-5 w-5" />
         </span>
         <h3 className="mt-4 font-display text-lg font-normal text-ink">
@@ -35,7 +35,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[22px] border border-border bg-paper-surface p-6 shadow-soft sm:p-8"
+      className="section-card rounded-[24px] p-6 sm:p-8"
     >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Field label="Name" name="name" type="text" placeholder="Jane Founder" required />
@@ -54,7 +54,7 @@ export function ContactForm() {
       <div className="mt-5">
         <label
           htmlFor="message"
-          className="mb-1.5 block text-[12.5px] text-ink"
+          className="mb-1.5 block text-[12.5px] font-semibold uppercase tracking-[0.24em] text-ink"
         >
           Tell me a little about it
         </label>
@@ -64,14 +64,14 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="What are you building, and what's the timeline?"
-          className="w-full resize-none rounded-2xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-sage"
+          className="w-full resize-none rounded-2xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[14px] text-paper transition-transform hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0"
+        className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[14px] font-medium text-paper transition-all hover:-translate-y-0.5 hover:bg-accent hover:text-ink disabled:opacity-60 disabled:hover:translate-y-0"
       >
         {status === "submitting" ? "Sending…" : "Send message"}
       </button>
@@ -94,7 +94,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-[12.5px] text-ink">
+      <label htmlFor={name} className="mb-1.5 block text-[12.5px] font-semibold uppercase tracking-[0.24em] text-ink">
         {label}
       </label>
       <input
@@ -103,7 +103,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-2xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-sage"
+        className="w-full rounded-2xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
       />
     </div>
   );
