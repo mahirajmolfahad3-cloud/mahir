@@ -29,6 +29,21 @@ function makeBmp(width, height, bg, border, accent, mark) {
     writeUInt32LE(bmp, 46, 0);
     writeUInt32LE(bmp, 50, 0);
 
+    const drawLine = (x0, y0, x1, y1, thickness = 1) => (x, y) => {
+        const dx = x1 - x0;
+        const dy = y1 - y0;
+        const length = Math.hypot(dx, dy) || 1;
+        const distance = Math.abs((x - x0) * dy - (y - y0) * dx) / length;
+        return distance <= thickness;
+    };
+
+    const midX = Math.floor(width / 2);
+    const leftLeg = drawLine(2, height - 3, 2, 3, 0.8);
+    const rightLeg = drawLine(width - 3, height - 3, width - 3, 3, 0.8);
+    const leftDiagonal = drawLine(2, height - 3, midX - 1, 3, 0.8);
+    const rightDiagonal = drawLine(width - 3, height - 3, midX + 1, 3, 0.8);
+    const centerStem = drawLine(midX, height - 3, midX, 3, 0.8);
+
     let offset = 54;
     for (let y = height - 1; y >= 0; y--) {
         for (let x = 0; x < width; x++) {
@@ -37,17 +52,8 @@ function makeBmp(width, height, bg, border, accent, mark) {
             const isBorder = x < inset || x >= width - inset || y < inset || y >= height - inset;
             if (isBorder) color = border;
 
-            const midX = width / 2;
-            const midY = height / 2;
-            const dx = x - midX + 0.5;
-            const dy = y - midY + 0.5;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const ring = dist > 3.2 && dist < 5.0;
-            const slash = (x < midX && y > midY) || (x > midX && y < midY);
-            const markPx = (x >= 3 && x <= width - 3 && y >= 3 && y <= height - 3 && ((x <= 4 && y >= 4) || (x >= width - 5 && y >= 4) || (x >= 5 && x <= width - 5 && y <= 7)));
-            if (ring) color = accent;
-            if (markPx) color = mark;
-            if (slash && !isBorder && y < height - 2) color = mark;
+            const isMark = leftLeg(x, y) || rightLeg(x, y) || leftDiagonal(x, y) || rightDiagonal(x, y) || centerStem(x, y);
+            if (!isBorder && isMark) color = mark;
 
             bmp[offset] = color[2];
             bmp[offset + 1] = color[1];

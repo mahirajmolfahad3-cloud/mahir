@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mahir logo">
-  <rect width="64" height="64" rx="18" fill="#FFFDF8"/>
-  <rect x="6" y="6" width="52" height="52" rx="14" fill="#F7F1E4" stroke="#7FA377" stroke-width="3"/>
-  <path d="M20 20v24M20 44l12-14 12 14V20" stroke="#2B2620" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M32 30l8-10" stroke="#7FA377" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mahir monogram">
+  <rect width="64" height="64" rx="18" fill="#FDF8EE"/>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="#F4ECDC" stroke="#4F5F3D" stroke-width="3"/>
+  <path d="M20 18v28" stroke="#2B231A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M20 46 32 28 44 46" stroke="#2B231A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 18v28" stroke="#2B231A" stroke-width="5" stroke-linecap="round"/>
 </svg>

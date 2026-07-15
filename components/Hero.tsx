@@ -44,10 +44,10 @@ export function Hero() {
             <div className="gentle-float relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-border bg-paper-surface-2 shadow-soft-lg">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-ink-muted">
                 <Image
-                  src="/images/profile.png"
+                  src="/images/pfp.png"
                   alt="Mahir"
-                  width={160}
-                  height={200}
+                  width={180}
+                  height={190}
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>
