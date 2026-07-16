@@ -113,7 +113,7 @@ export function Nav() {
           href="#top"
           className="flex items-center gap-2.5 rounded-full font-display text-[17px] italic tracking-tight text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-paper-surface/80 text-[14px] font-medium text-accent shadow-soft">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/30 bg-accent-light text-[14px] font-medium text-accent shadow-soft">
             M
           </span>
           Mahir

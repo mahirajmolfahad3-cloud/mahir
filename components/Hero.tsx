@@ -60,7 +60,7 @@ export function Hero() {
 
             <Reveal delay={150} className="relative mx-auto w-full max-w-[18rem] sm:max-w-[22rem] lg:max-w-none">
               <div className="group relative">
-                <div className="absolute -inset-4 rounded-[40px] bg-accent/10 blur-2xl opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute -inset-4 rounded-[40px] bg-accent/10 blur-2xl opacity-40 transition-opacity duration-500 group-hover:opacity-80" />
 
                 <div className="gentle-float relative aspect-[4/5] w-full overflow-hidden rounded-[32px] border border-border bg-paper-surface-2/70 shadow-soft-lg sm:rounded-[40px]">
                   <Image
