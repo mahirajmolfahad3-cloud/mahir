@@ -8,7 +8,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <Reveal>
       <article
-        className={`group section-card grid grid-cols-1 items-center gap-6 rounded-[32px] p-4 sm:gap-8 sm:p-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:p-8 ${reversed ? "lg:[&>*:first-child]:order-2" : ""}`}
+        className={`group section-card grid grid-cols-1 items-center gap-6 rounded-[32px] p-4 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 sm:gap-8 sm:p-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:p-8 ${reversed ? "lg:[&>*:first-child]:order-2" : ""}`}
       >
         <div className="relative overflow-hidden rounded-[24px] border border-border/70 bg-paper-surface-2/70 p-2.5 sm:p-3">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(103,232,249,0.16),transparent_48%)]" />
@@ -32,6 +32,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <p className="mt-4 text-[15px] leading-8 text-ink-muted sm:text-[15.5px]">
             {project.description}
           </p>
+
+          <div className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.2em] text-accent">
+            <span className="h-2 w-2 rounded-full bg-accent" />
+            {project.impact}
+          </div>
 
           <ul className="mt-6 space-y-2.5">
             {project.features.map((f) => (

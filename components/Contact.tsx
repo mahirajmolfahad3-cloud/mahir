@@ -15,12 +15,12 @@ export function Contact() {
           <Reveal>
             <p className="section-kicker">Say hello</p>
             <h2 className="section-title mt-3 sm:mt-4">
-              I&rsquo;d like to hear what you&rsquo;re working on.
+              Let&rsquo;s make something useful together.
             </h2>
             <p className="section-copy mt-4 max-w-md">
-              No pitch necessary &mdash; just tell me where things stand and what
-              you&rsquo;re hoping to figure out. I read every message myself, and
-              usually reply within a few hours.
+              Whether you&rsquo;ve got a rough idea, a messy workflow, or a product
+              that needs a calmer, more thoughtful layer, I&rsquo;d be glad to help
+              you shape it. I read every note myself and usually reply within a day.
             </p>
 
             <ul className="mt-9 space-y-3">

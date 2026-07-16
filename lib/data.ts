@@ -3,6 +3,7 @@ export interface Project {
   name: string;
   tagline: string;
   description: string;
+  impact: string;
   stack: string[];
   features: string[];
   liveUrl?: string;
@@ -23,6 +24,7 @@ export const projects: Project[] = [
     tagline: "A CRM built for how small teams actually sell",
     description:
       "A lead-management tool for freelancers and small businesses, built around a gentle temperature system that shows, at a glance, which leads are worth a call today.",
+    impact: "Turns a messy pipeline into one clear next action.",
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     features: [
       "A cold → warm → hot → won pipeline you can read in a glance",
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     tagline: "The starting point founders usually skip straight past",
     description:
       "A starter platform for early founders that comes with authentication, billing, and a working dashboard already in place, so the first week can be spent testing the idea instead of rebuilding the scaffolding around it.",
+    impact: "Helps a product idea become testable in days, not weeks.",
     stack: ["Next.js", "React", "Supabase", "Tailwind CSS"],
     features: [
       "Email and OAuth sign-in, set up and ready from day one",
@@ -77,6 +80,7 @@ export const projects: Project[] = [
     tagline: "A streamlined approach to book management",
     description:
       "A simple yet powerful tool for managing book inventories, tracking availability, and facilitating seamless borrowing processes.",
+    impact: "Makes day-to-day operations feel lighter and less reactive.",
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     features: [
       "Book inventory management",
