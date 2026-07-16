@@ -17,7 +17,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://your-domain.com"; // Replace with your real domain
+const siteUrl = "https://mahir-eta.vercel.app"; // Replace with your real domain
 const siteName = "Mahir";
 
 const title = "Mahir";
