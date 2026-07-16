@@ -48,7 +48,7 @@ export function Nav() {
       <nav className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-2.5 py-2.5 sm:px-4 lg:px-6 ${scrolled ? "nav-shell" : "border border-transparent bg-transparent shadow-none"}`}>
         <a
           href="#top"
-          className="flex items-center gap-2.5 font-display text-[17px] italic tracking-tight text-ink transition-colors hover:text-accent"
+          className="flex items-center gap-2.5 rounded-full font-display text-[17px] italic tracking-tight text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-paper-surface/80 text-[14px] font-medium text-accent shadow-soft">
             M
@@ -63,7 +63,8 @@ export function Nav() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-all ${isActive ? "text-ink" : "text-ink-muted hover:bg-paper-surface/70 hover:text-ink"}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper ${isActive ? "text-ink" : "text-ink-muted hover:bg-paper-surface/70 hover:text-ink"}`}
                 >
                   {link.label}
                   {isActive && (
@@ -79,7 +80,7 @@ export function Nav() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full border border-border/70 bg-paper-surface/80 px-4 py-2.5 text-[13.5px] font-medium text-ink shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10"
+            className="inline-flex items-center rounded-full border border-border/70 bg-paper-surface/80 px-4 py-2.5 text-[13.5px] font-medium text-ink shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
             Say hello
           </a>
@@ -89,8 +90,9 @@ export function Nav() {
           <ThemeToggle />
           <button
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-paper-surface/80 text-ink shadow-soft transition-colors hover:border-accent hover:text-accent"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-paper-surface/80 text-ink shadow-soft transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
             {open ? <XIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
           </button>
@@ -105,7 +107,7 @@ export function Nav() {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-3 py-2.5 text-[15px] text-ink-muted transition-colors hover:bg-paper-surface-2 hover:text-ink"
+                  className="block rounded-2xl px-3 py-2.5 text-[15px] text-ink-muted transition-colors hover:bg-paper-surface-2 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {link.label}
                 </a>
@@ -115,7 +117,7 @@ export function Nav() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="block rounded-full border border-border/70 bg-paper-surface px-4 py-2.5 text-center text-[14px] font-medium text-ink transition-all hover:border-accent hover:bg-accent/10"
+                className="block rounded-full border border-border/70 bg-paper-surface px-4 py-2.5 text-center text-[14px] font-medium text-ink transition-all hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Say hello
               </a>
