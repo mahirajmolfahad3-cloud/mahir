@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { projects } from "@/lib/data";
 import { ChevronDown } from "./icons";
 import { Reveal } from "./Reveal";
@@ -15,6 +15,30 @@ const FIELDS: { key: "problem" | "solution" | "challenges" | "outcome"; label: s
 
 export function CaseStudies() {
   const [openSlug, setOpenSlug] = useState<string>(projects[0].slug);
+
+  // Open the accordion when navigated from a "Read the case study" link
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith("#case-")) {
+      const slug = hash.replace("#case-", "");
+      const match = projects.find((p) => p.slug === slug);
+      if (match) setOpenSlug(match.slug);
+    }
+  }, []);
+
+  // Listen for hash changes (e.g. clicking the link while on the page)
+  useEffect(() => {
+    function onHashChange() {
+      const hash = window.location.hash;
+      if (hash.startsWith("#case-")) {
+        const slug = hash.replace("#case-", "");
+        const match = projects.find((p) => p.slug === slug);
+        if (match) setOpenSlug(match.slug);
+      }
+    }
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return (
     <section id="case-studies" className="section-shell">

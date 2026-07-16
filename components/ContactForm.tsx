@@ -3,18 +3,39 @@
 import { useState, type FormEvent } from "react";
 import { CheckIcon } from "./icons";
 
-type Status = "idle" | "submitting" | "sent";
+type Status = "idle" | "submitting" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
-    // Wire this up to your form handler of choice (Formspree, a Supabase
-    // table, an API route that sends email, etc.)
-    setTimeout(() => setStatus("sent"), 700);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          projectType: data.get("projectType"),
+          message: data.get("message"),
+        }),
+      });
+
+      if (!res.ok) throw new Error("Server error");
+
+      setStatus("sent");
+    } catch (err) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   }
+
 
   if (status === "sent") {
     return (
@@ -35,9 +56,15 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="section-card rounded-[24px] p-6 sm:p-8"
+      className="section-card relative rounded-[24px] p-6 sm:p-8"
     >
+      {status === "error" && (
+        <div className="absolute inset-x-6 top-4 z-10 rounded-xl bg-red-500/10 p-3 text-[13px] font-medium text-red-600">
+          Something went wrong. Please try again.
+        </div>
+      )}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
         <Field label="Name" name="name" type="text" placeholder="Jane Founder" required />
         <Field label="Email" name="email" type="email" placeholder="jane@company.com" required />
       </div>

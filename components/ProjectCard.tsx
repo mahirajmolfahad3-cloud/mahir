@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import type { Project } from "@/lib/data";
 import { ArrowUpRight, GithubIcon, CheckIcon } from "./icons";
 import { Reveal } from "./Reveal";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const reversed = index % 2 === 1;
+  const [imgError, setImgError] = useState(false);
 
   return (
     <Reveal>
@@ -12,12 +16,25 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       >
         <div className="relative overflow-hidden rounded-[24px] border border-border/70 bg-paper-surface-2/70 p-2.5 sm:p-3">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(103,232,249,0.16),transparent_48%)]" />
-          <div className="relative aspect-[16/11] overflow-hidden rounded-[18px]">
-            <img
-              src={project.image}
-              alt={`${project.name} screenshot`}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            />
+          <div className="relative aspect-[16/11] overflow-hidden rounded-[18px] bg-paper-surface-2/50">
+            {imgError ? (
+              <div className="flex h-full w-full items-center justify-center">
+                <div className="flex flex-col items-center gap-2 text-ink-muted">
+                  <svg className="h-8 w-8 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                  </svg>
+                  <span className="text-[11px] font-medium">Preview unavailable</span>
+                </div>
+              </div>
+            ) : (
+              <img
+                src={project.image}
+                alt={`${project.name} screenshot`}
+                loading="lazy"
+                onError={() => setImgError(true)}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
           </div>
         </div>
@@ -89,4 +106,3 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     </Reveal>
   );
 }
-

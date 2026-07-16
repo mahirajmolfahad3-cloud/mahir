@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { MenuIcon, XIcon } from "./icons";
 
@@ -15,6 +15,8 @@ export function Nav() {
   const [active, setActive] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -43,9 +45,70 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  // Close on Escape, trap focus inside mobile menu, close on click outside
+  useEffect(() => {
+    if (!open) return;
+
+    const menu = menuRef.current;
+    const toggle = toggleRef.current;
+    if (!menu) return;
+
+    // Find all focusable elements inside the menu
+    const focusable = menu.querySelectorAll<HTMLElement>(
+      'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggle?.focus();
+        return;
+      }
+
+      if (e.key !== "Tab" || focusable.length === 0) return;
+
+      // Trap focus inside the menu
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    }
+
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        menu &&
+        toggle &&
+        !menu.contains(e.target as Node) &&
+        !toggle.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    // Focus first link when menu opens
+    first?.focus();
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   return (
-    <header className={`sticky top-0 z-50 px-3 py-3 transition-all duration-500 sm:px-6 lg:px-8 ${scrolled ? "pt-2" : "pt-3"}`}>
-      <nav className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-2.5 py-2.5 sm:px-4 lg:px-6 ${scrolled ? "nav-shell" : "border border-transparent bg-transparent shadow-none"}`}>
+    <header className="sticky top-0 z-50 px-3 py-3 sm:px-6 lg:px-8">
+      <nav className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-2.5 py-2.5 transition-all duration-300 sm:px-4 lg:px-6 ${scrolled ? "nav-shell" : "border border-transparent bg-transparent shadow-none"}`}>
+
         <a
           href="#top"
           className="flex items-center gap-2.5 rounded-full font-display text-[17px] italic tracking-tight text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
@@ -89,6 +152,7 @@ export function Nav() {
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
+            ref={toggleRef}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -100,20 +164,27 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="mx-auto mt-2.5 max-w-6xl rounded-[24px] border border-border/70 bg-paper-surface/90 p-3 shadow-soft-lg md:hidden">
+        <div ref={menuRef} className="mx-auto mt-2.5 max-w-6xl rounded-[24px] border border-border/70 bg-paper-surface/90 p-3 shadow-soft-lg md:hidden">
           <ul className="flex flex-col gap-1">
-            {LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-3 py-2.5 text-[15px] text-ink-muted transition-colors hover:bg-paper-surface-2 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {LINKS.map((link) => {
+              const isActive = active === link.href;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`block rounded-2xl px-3 py-2.5 text-[15px] transition-colors ${isActive
+                        ? "bg-accent/10 text-ink font-medium"
+                        : "text-ink-muted hover:bg-paper-surface-2 hover:text-ink"
+                      }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
             <li className="pt-2">
+
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
