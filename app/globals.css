@@ -190,6 +190,11 @@ select {
   pointer-events: none;
 }
 
+.hero-dot-grid {
+  background-image: radial-gradient(var(--ink) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 /* ── Nav Shell ── */
 
 .nav-shell {
