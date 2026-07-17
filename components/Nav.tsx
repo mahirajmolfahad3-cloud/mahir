@@ -107,13 +107,13 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 px-3 py-3 sm:px-6 lg:px-8">
-      <nav className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-2.5 py-2.5 transition-all duration-300 sm:px-4 lg:px-6 ${scrolled ? "nav-shell" : "border border-transparent bg-transparent shadow-none"}`}>
+      <nav className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border/70 bg-paper px-2.5 py-2.5 transition-colors duration-300 sm:px-4 lg:px-6 ${scrolled ? "shadow-sm" : ""}`}>
 
         <a
           href="#top"
-          className="flex items-center gap-2.5 rounded-full font-display text-[17px] italic tracking-tight text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+          className="flex items-center gap-2.5 font-display text-[17px] italic tracking-tight text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/30 bg-accent-light text-[14px] font-medium text-accent shadow-soft">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-paper-surface text-[14px] font-medium text-accent">
             M
           </span>
           Mahir
@@ -127,7 +127,7 @@ export function Nav() {
                 <a
                   href={link.href}
                   aria-current={isActive ? "true" : undefined}
-                  className={`relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper ${isActive ? "text-ink" : "text-ink-muted hover:bg-paper-surface/70 hover:text-ink"}`}
+                  className={`relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper ${isActive ? "text-ink" : "text-ink-muted hover:text-ink"}`}
                 >
                   {link.label}
                   {isActive && (
@@ -143,7 +143,7 @@ export function Nav() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full border border-border/70 bg-paper-surface/80 px-4 py-2.5 text-[13.5px] font-medium text-ink shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="inline-flex items-center rounded-full border border-border bg-paper-surface px-4 py-2.5 text-[13.5px] font-medium text-ink transition-colors hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
             Say hello
           </a>
@@ -156,7 +156,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-paper-surface/80 text-ink shadow-soft transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-paper-surface text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
             {open ? <XIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
           </button>
@@ -164,7 +164,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div ref={menuRef} className="mx-auto mt-2.5 max-w-6xl rounded-[24px] border border-border/70 bg-paper-surface/90 p-3 shadow-soft-lg md:hidden">
+        <div ref={menuRef} className="mx-auto mt-2.5 max-w-6xl rounded-[20px] border border-border bg-paper-surface p-3 md:hidden">
           <ul className="flex flex-col gap-1">
             {LINKS.map((link) => {
               const isActive = active === link.href;
@@ -173,7 +173,7 @@ export function Nav() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`block rounded-2xl px-3 py-2.5 text-[15px] transition-colors ${isActive
+                    className={`block rounded-xl px-3 py-2.5 text-[15px] transition-colors ${isActive
                         ? "bg-accent/10 text-ink font-medium"
                         : "text-ink-muted hover:bg-paper-surface-2 hover:text-ink"
                       }`}
@@ -184,11 +184,10 @@ export function Nav() {
               );
             })}
             <li className="pt-2">
-
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="block rounded-full border border-border/70 bg-paper-surface px-4 py-2.5 text-center text-[14px] font-medium text-ink transition-all hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="block rounded-full border border-border bg-paper-surface px-4 py-2.5 text-center text-[14px] font-medium text-ink transition-colors hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Say hello
               </a>

@@ -56,10 +56,10 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="section-card relative rounded-[24px] p-6 sm:p-8"
+      className="section-card relative rounded-[20px] p-6 sm:p-8"
     >
       {status === "error" && (
-        <div className="absolute inset-x-6 top-4 z-10 rounded-xl bg-red-500/10 p-3 text-[13px] font-medium text-red-600">
+        <div className="relative rounded-lg bg-red-500/10 p-3 text-[13px] font-medium text-red-600">
           Something went wrong. Please try again.
         </div>
       )}
@@ -81,7 +81,7 @@ export function ContactForm() {
       <div className="mt-5">
         <label
           htmlFor="message"
-          className="mb-1.5 block text-[12.5px] font-semibold uppercase tracking-[0.24em] text-ink"
+          className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-ink"
         >
           Tell me a little about it
         </label>
@@ -91,14 +91,14 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="What are you building, and what's the timeline?"
-          className="w-full resize-none rounded-2xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
+          className="w-full resize-none rounded-xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[14px] font-medium text-paper transition-all hover:-translate-y-0.5 hover:bg-accent hover:text-ink disabled:opacity-60 disabled:hover:translate-y-0"
+        className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-[14px] font-medium text-paper transition-colors hover:bg-accent hover:text-ink disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send message"}
       </button>
@@ -121,7 +121,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-[12.5px] font-semibold uppercase tracking-[0.24em] text-ink">
+      <label htmlFor={name} className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">
         {label}
       </label>
       <input
@@ -130,7 +130,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-2xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
+        className="w-full rounded-xl border border-border bg-paper px-4 py-3 text-[14px] text-ink placeholder:text-ink-muted/60 outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
       />
     </div>
   );

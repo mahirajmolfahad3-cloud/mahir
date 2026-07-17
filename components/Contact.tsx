@@ -30,13 +30,13 @@ export function Contact() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-3 rounded-[18px] border border-border/70 bg-paper-surface/70 px-3 py-3 text-[14.5px] text-ink-muted transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-paper-surface"
+                    className="group flex items-center gap-3 rounded-[16px] border border-border bg-paper-surface px-3 py-3 text-[14.5px] text-ink-muted transition-colors hover:border-accent hover:text-ink"
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-paper-surface text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent">
                       <Icon className="h-3.5 w-3.5" />
                     </span>
                     <span>
-                      <span className="block text-[10.5px] font-semibold uppercase tracking-[0.24em] text-ink-muted/70">
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
                         {label}
                       </span>
                       {value}

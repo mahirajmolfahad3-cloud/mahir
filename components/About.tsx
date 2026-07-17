@@ -39,11 +39,11 @@ export function About() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {PRINCIPLES.map((p, i) => (
               <Reveal key={p.title} delay={i * 90}>
-                <div className="section-card section-card-muted h-full rounded-[24px] p-6 sm:p-7">
-                  <h3 className="font-display text-[15.5px] font-normal text-ink">
+                <div className="section-card h-full rounded-[20px] p-6 sm:p-7">
+                  <h3 className="font-display text-[1.05rem] font-normal text-ink">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 text-[13.5px] leading-7 text-ink-muted">
+                  <p className="mt-2 text-[14px] leading-[1.75] text-ink-muted">
                     {p.description}
                   </p>
                 </div>

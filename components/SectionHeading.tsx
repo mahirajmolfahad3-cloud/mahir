@@ -11,7 +11,7 @@ export function SectionHeading({
 }) {
   return (
     <Reveal className="max-w-3xl">
-      <div className="flex flex-col items-start gap-2">
+      <div className="flex flex-col gap-2">
         <p className="section-kicker">{eyebrow}</p>
         <h2 className="section-title">{title}</h2>
       </div>

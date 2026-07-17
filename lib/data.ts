@@ -75,8 +75,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "bookflow",
-    name: "BookFlow",
+    slug: "greanflow",
+    name: "GreanFlow",
     tagline: "A streamlined approach to book management",
     description:
       "A simple yet powerful tool for managing book inventories, tracking availability, and facilitating seamless borrowing processes.",
@@ -88,9 +88,9 @@ export const projects: Project[] = [
       "Seamless borrowing processes",
       "User-friendly interface",
     ],
-    liveUrl: "https://bookflow-lilac.vercel.app/",
-    githubUrl: "https://github.com/mahirajmolfahad3-cloud/BookFlow",
-    image: "/projects/bookflow.png",
+    liveUrl: "https://greenflow-rho.vercel.app/",
+    githubUrl: "https://github.com/mahirajmolfahad3-cloud/greenflow-hvac",
+    image: "/project-screenshots/greenflow.png",
     caseStudy: {
       problem:
         "Every morning, the operations team was reconciling four separate spreadsheets just to figure out which shipments were at risk — and by the time they finished, the numbers were already a day behind reality.",

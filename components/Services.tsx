@@ -15,19 +15,19 @@ export function Services() {
           description="Every engagement starts with a conversation about what you actually need — these are the shapes it usually takes."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={(i % 3) * 80}>
-              <div className="section-card section-card-muted h-full rounded-[24px] p-6 sm:p-7">
-                <h3 className="font-display text-[17px] font-normal text-ink">
+              <div className="section-card h-full rounded-[20px] p-6 sm:p-7">
+                <h3 className="font-display text-[1.05rem] font-normal text-ink">
                   {service.title}
                 </h3>
-                <p className="mt-2.5 text-[14px] leading-7 text-ink-muted sm:text-[14.5px]">
+                <p className="mt-2 text-[14px] leading-[1.75] text-ink-muted">
                   {service.description}
                 </p>
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-4 space-y-2">
                   {service.deliverables.map((d) => (
-                    <li key={d} className="flex items-start gap-2.5 text-[12.5px] leading-6 text-ink-muted">
+                    <li key={d} className="flex items-start gap-2.5 text-[13px] leading-6 text-ink-muted">
                       <CheckIcon className="mt-0.5 h-3 w-3 shrink-0 text-accent" />
                       <span>{d}</span>
                     </li>

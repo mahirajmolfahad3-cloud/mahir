@@ -56,18 +56,18 @@ export function CaseStudies() {
               <div
                 key={project.slug}
                 id={`case-${project.slug}`}
-                className="section-card scroll-mt-24 overflow-hidden rounded-[24px]"
+                className="section-card scroll-mt-24 overflow-hidden rounded-[20px]"
               >
                 <button
                   onClick={() => setOpenSlug(isOpen ? "" : project.slug)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-all duration-300 hover:bg-paper-surface/70 sm:px-8"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-paper-surface/50 sm:px-8"
                 >
                   <div>
-                    <span className="font-display text-[13.5px] italic text-accent">
+                    <span className="font-display text-[13px] italic text-accent">
                       Case study
                     </span>
-                    <h3 className="mt-1 font-display text-xl font-normal text-ink sm:text-2xl">
+                    <h3 className="mt-1 font-display text-[1.2rem] font-normal text-ink sm:text-[1.4rem]">
                       {project.name}
                     </h3>
                   </div>
@@ -78,7 +78,7 @@ export function CaseStudies() {
 
                 {isOpen && (
                   <div className="px-6 pb-8 sm:px-8 sm:pb-10">
-                    <div className="mb-8 aspect-[21/9] w-full overflow-hidden rounded-[18px] border border-border bg-paper-surface-2 shadow-soft">
+                    <div className="mb-8 aspect-[21/9] w-full overflow-hidden rounded-[12px] border border-border">
                       <img
                         src={project.image}
                         alt={`${project.name} case study screenshot`}
@@ -86,13 +86,13 @@ export function CaseStudies() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                       {FIELDS.map((field) => (
                         <Reveal key={field.key}>
-                          <h4 className="font-display text-[14px] italic text-accent">
+                          <h4 className="font-display text-[13px] italic text-accent">
                             {field.label}
                           </h4>
-                          <p className="mt-2 text-[14.5px] leading-relaxed text-ink-muted">
+                          <p className="mt-2 text-[14.5px] leading-[1.75] text-ink-muted">
                             {project.caseStudy[field.key]}
                           </p>
                         </Reveal>
@@ -100,14 +100,14 @@ export function CaseStudies() {
                     </div>
 
                     <div className="mt-8">
-                      <h4 className="font-display text-[14px] italic text-accent">
+                      <h4 className="font-display text-[13px] italic text-accent">
                         Built with
                       </h4>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {project.stack.map((s) => (
                           <span
                             key={s}
-                            className="rounded-full border border-border/70 bg-paper-surface-2 px-3 py-1.5 text-[12px] text-ink-muted"
+                            className="rounded-full border border-border bg-paper-surface px-2.5 py-1 text-[11px] text-ink-muted"
                           >
                             {s}
                           </span>
